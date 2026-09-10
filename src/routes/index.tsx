@@ -1362,7 +1362,7 @@ function ProfilDiyalog({
   return (
     <>
       <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-        <DialogContent className="relative flex max-h-[94dvh] flex-col overflow-hidden p-0 sm:max-w-md">
+        <DialogContent className="fixed flex max-h-[94dvh] flex-col overflow-hidden p-0 sm:max-w-md">
         {hocaModu && (
           <Button
             size="icon"
