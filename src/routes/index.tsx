@@ -1362,11 +1362,11 @@ function ProfilDiyalog({
   return (
     <>
       <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-        <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
-        <div className="flex-1 overflow-y-auto p-6">
+        <DialogContent className="flex max-h-[94dvh] flex-col overflow-hidden p-0 sm:max-w-md">
+        <div className="flex-1 overflow-y-auto px-4 py-4 sm:p-6">
           <DialogHeader className="text-center">
             <DialogTitle>{t("talebeProfili")}</DialogTitle>
-            <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
+            <DialogDescription className="sr-only">{t("fotoVeKisisel")}</DialogDescription>
           </DialogHeader>
 
         {hocaModu && (
@@ -1382,15 +1382,16 @@ function ProfilDiyalog({
           </div>
         )}
 
-        <div className="flex flex-col items-center gap-3">
-          <div className="relative h-[120px] w-[120px]">
+        <div className="flex flex-col items-center gap-2">
+          <div className="relative h-[76px] w-[76px] sm:h-[120px] sm:w-[120px]">
             <button
               type="button"
               onClick={() => talebe.fotoUrl && setFotoBuyuk(true)}
               className={`block rounded-full ${talebe.fotoUrl ? "cursor-zoom-in" : "cursor-default"}`}
               title={talebe.fotoUrl ? t("fotoBuyut") : undefined}
             >
-              <TalebeAvatar talebe={talebe} boyut={120} />
+              <span className="sm:hidden"><TalebeAvatar talebe={talebe} boyut={76} /></span>
+              <span className="hidden sm:block"><TalebeAvatar talebe={talebe} boyut={120} /></span>
             </button>
             {hocaModu && (
               <label
@@ -1491,22 +1492,21 @@ function ProfilDiyalog({
               )}
             </div>
           </div>
-          {hocaModu && (
+          {hocaModu && talebe.fotoUrl && (
             <Button
               size="sm"
               variant="ghost"
-              disabled={!talebe.fotoUrl}
-              className="text-xs text-muted-foreground disabled:opacity-40"
+              className="-my-1 text-xs text-muted-foreground"
               onClick={() => onFotoDegistir(talebe, "")}
             >
               {t("fotoKaldir")}
             </Button>
           )}
-          <p className="min-h-4 text-xs text-destructive">{hata ?? ""}</p>
+          {hata && <p className="text-xs text-destructive">{hata}</p>}
         </div>
 
 
-        <div className="mt-2 space-y-3">
+        <div className="mt-1 space-y-2">
           <div className="space-y-1.5">
             <Label className="flex items-center gap-1.5 text-sm">
               <Phone className="h-3.5 w-3.5" /> {t("telefon")}
@@ -1538,15 +1538,15 @@ function ProfilDiyalog({
               value={notlar}
               onChange={(e) => setNotlar(e.target.value.slice(0, 600))}
               disabled={!hocaModu}
-              rows={3}
+              rows={2}
               placeholder="—"
-              className="text-base"
+              className="text-base sm:min-h-[84px]"
             />
           </div>
         </div>
       </div>
 
-      <div className="border-t bg-background p-4 sm:p-6">
+      <div className="border-t bg-background px-4 py-3 sm:p-6">
         <DialogFooter className="gap-2 sm:gap-2">
           <Button variant="outline" onClick={onClose}>
             {t("iptal")}
