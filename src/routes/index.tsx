@@ -1362,25 +1362,23 @@ function ProfilDiyalog({
   return (
     <>
       <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-        <DialogContent className="flex max-h-[94dvh] flex-col overflow-hidden p-0 sm:max-w-md">
+        <DialogContent className="relative flex max-h-[94dvh] flex-col overflow-hidden p-0 sm:max-w-md">
+        {hocaModu && (
+          <Button
+            size="icon"
+            variant="destructive"
+            className="absolute left-2 top-2 z-10"
+            title={t("sil")}
+            onClick={() => setSilOnayAcik(true)}
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        )}
         <div className="flex-1 overflow-y-auto px-4 py-4 sm:p-6">
           <DialogHeader className="text-center">
             <DialogTitle>{t("talebeProfili")}</DialogTitle>
             <DialogDescription className="sr-only">{t("fotoVeKisisel")}</DialogDescription>
           </DialogHeader>
-
-        {hocaModu && (
-          <div className="flex justify-end">
-            <Button
-              size="icon"
-              variant="destructive"
-              title={t("sil")}
-              onClick={() => setSilOnayAcik(true)}
-            >
-              <Trash2 className="h-4 w-4" />
-            </Button>
-          </div>
-        )}
 
         <div className="flex flex-col items-center gap-2">
           <div className="relative h-[76px] w-[76px] sm:h-[120px] sm:w-[120px]">
