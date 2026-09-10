@@ -1362,7 +1362,7 @@ function ProfilDiyalog({
   return (
     <>
       <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-        <DialogContent className="fixed flex max-h-[94dvh] flex-col overflow-hidden p-0 sm:max-w-md">
+        <DialogContent className="fixed flex max-h-[94dvh] w-[95vw] max-w-[95vw] flex-col overflow-hidden p-0 sm:max-w-md">
         {hocaModu && (
           <Button
             size="icon"
@@ -1381,14 +1381,14 @@ function ProfilDiyalog({
           </DialogHeader>
 
         <div className="flex flex-col items-center gap-2">
-          <div className="relative h-[76px] w-[76px] sm:h-[120px] sm:w-[120px]">
+          <div className="relative h-[92px] w-[92px] sm:h-[120px] sm:w-[120px]">
             <button
               type="button"
               onClick={() => talebe.fotoUrl && setFotoBuyuk(true)}
               className={`block rounded-full ${talebe.fotoUrl ? "cursor-zoom-in" : "cursor-default"}`}
               title={talebe.fotoUrl ? t("fotoBuyut") : undefined}
             >
-              <span className="sm:hidden"><TalebeAvatar talebe={talebe} boyut={76} /></span>
+              <span className="sm:hidden"><TalebeAvatar talebe={talebe} boyut={92} /></span>
               <span className="hidden sm:block"><TalebeAvatar talebe={talebe} boyut={120} /></span>
             </button>
             {hocaModu && (
