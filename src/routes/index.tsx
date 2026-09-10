@@ -832,7 +832,7 @@ function Index() {
         <Card className="overflow-hidden">
             <Table className="table-fixed">
               <colgroup>
-                <col className="w-[8%]" />
+                <col className="w-[6%]" />
                 <col className={hocaModu ? "w-[42%]" : "w-[46%]"} />
                 <col className={hocaModu ? "w-[18%]" : "w-[20%]"} />
                 <col className="w-[8%]" />
@@ -841,7 +841,7 @@ function Index() {
               </colgroup>
               <TableHeader>
                 <TableRow className="bg-muted/40">
-                  <TableHead className="w-10 px-1 text-center text-xs sm:w-14 sm:px-4">#</TableHead>
+                  <TableHead className="w-8 px-1 text-center text-xs sm:w-12 sm:px-4">#</TableHead>
                   <TableHead className="px-1 text-xs sm:px-4 sm:text-sm">{tr("talebe")}</TableHead>
                   <TableHead className="px-1 text-center sm:px-4">
                     <Select
@@ -875,7 +875,7 @@ function Index() {
                   const hafta = ilerleme(t, seciliHafta, haftaSonu);
                   return (
                   <TableRow key={t.id} className="hover:bg-muted/30">
-                    <TableCell className="px-1 py-2 text-center text-sm font-medium text-muted-foreground sm:px-4 sm:py-3 sm:text-base">
+                    <TableCell className="px-1 py-2 text-center text-xs text-muted-foreground sm:px-4 sm:py-3 sm:text-sm">
                       {i + 1}
                     </TableCell>
                     <TableCell className="min-w-0 px-1 py-2 font-medium sm:px-4 sm:py-3">
@@ -887,8 +887,8 @@ function Index() {
                         }}
                         className="group flex w-full min-w-0 items-center gap-1 text-left text-xs hover:text-primary sm:gap-2 sm:text-sm"
                       >
-                        <span className="shrink-0 scale-75 sm:scale-100">
-                          <TalebeAvatar talebe={t} boyut={30} />
+                        <span className="shrink-0 scale-90 sm:scale-100">
+                          <TalebeAvatar talebe={t} boyut={38} />
                         </span>
                         <span className="min-w-0 truncate group-hover:underline">{t.isim}</span>
                       </button>
